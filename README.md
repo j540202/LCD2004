@@ -1,4 +1,4 @@
-# LCD1602
+# LCD2004
 
 這是專為micro:bit提供的LCD2004積木
 
