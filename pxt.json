@@ -1,6 +1,6 @@
 {
     "name": "lcd2004",
-    "version": "0.0.4",
+    "version": "0.0.6",
     "description": "這是專為micro:bit提供的LCD2004積木",
     "license": "MIT",
     "dependencies": {
