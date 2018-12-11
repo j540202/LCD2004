@@ -119,11 +119,36 @@ namespace lcd2004 {
             let a = 0x80
             if (y > 0)
                 a = 0xC0
-            a += x
+
+            if (y == 0) {
+                a = 0xC0
+                a = a + (2 * 20) + x
+                //顯示第一行
+            }
+            else if (y == 1) {
+                a = 0xC0
+                a = a + x
+                //顯示第二行
+            }
+            else if (y == 2) {
+                a = 0xC0
+                //a = a + (2 * 20) + x - 4
+                a = a + (-2 * 20) + x - 4
+                //顯示第三行
+            }
+            else if (y == 3) {
+                a = 0xC0
+                a = a + 20 + x
+                //顯示第四行
+            }
+            else {
+                a += x
+            }
             setcmd(a)
         }
         setdat(ch)
     }
+
 
     //% blockId="LCD_putString" block="LCD show string %s|on x:%x|y:%y"
     //% weight=6 blockExternalInputs=true x.min=0 x.max=19 y.min=0 y.max=3
