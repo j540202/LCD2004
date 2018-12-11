@@ -119,7 +119,31 @@ namespace lcd1602 {
             let a = 0x80
             if (y > 0)
                 a = 0xC0
-            a += x
+
+            if (y == 0) {
+                a = 0xC0
+                a = a + (2 * 20) + x
+                //顯示第一行
+            }
+            else if (y == 1) {
+                a = 0xC0
+                a = a + x
+                //顯示第二行
+            }
+            else if (y == 2) {
+                a = 0xC0
+                //a = a + (2 * 20) + x - 4
+                a = a + (-2 * 20) + x - 4
+                //顯示第三行
+            }
+            else if (y == 3) {
+                a = 0xC0
+                a = a + 20 + x
+                //顯示第四行
+            }
+            else {
+                a += x
+            }
             setcmd(a)
         }
         setdat(ch)
